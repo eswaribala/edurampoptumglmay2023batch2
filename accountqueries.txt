@@ -1,0 +1,17 @@
+mutation($savingsAccountInput: SavingsAccountInput!){
+  addSavingsAccount(savingsAccountInput:$savingsAccountInput){
+    runningTotal
+    openingDate
+    
+  }
+}
+
+{
+  "savingsAccountInput": {
+    "accountNo": 0,
+    "runningTotal": 50000,
+    "openingDate": "2023-02-09",
+    "interestRate": 0.9
+  }
+}
+====================================================
