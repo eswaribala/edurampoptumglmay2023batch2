@@ -4,5 +4,5 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SavingsAccountQuery implements GraphQLQueryResolver {
+public class CurrentAccountQuery implements GraphQLQueryResolver {
 }
