@@ -20,19 +20,19 @@ input SavingsAccountInput{
     interestRate: Float
 }
 
-type Query{
+type SavingAccountQuery{
     findAllSavingsAccount: [SavingsAccount]
     findSavingsAccountById(accountNo: Int!): SavingsAccount
     findSavingsAccountByROI(roi: Float!): [SavingsAccount]
 }
 
-type Mutation{
+type SavingsAccountMutation{
     addSavingsAccount(savingsAccountInput: SavingsAccountInput!): SavingsAccount
     updateSavingsAccount(savingsAccountInput: SavingsAccountInput!): SavingsAccount
     deleteSavingsAccount(accountNo: Int): Boolean
 }
 
 schema {
-    query: Query
-    mutation: Mutation
+    query: SavingAccountQuery
+    mutation: SavingsAccountMutation
 }
