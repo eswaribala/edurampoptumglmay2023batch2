@@ -1,0 +1,26 @@
+type CurrentAccount implements Account{
+    accountNo: Int!
+    runningTotal: Int!
+    openingDate: String
+    overDraftLimit: Int!
+
+}
+
+input CurrentAccountInput{
+    accountNo: Int!
+    runningTotal: Int!
+    openingDate: String
+    overDraftLimit: Int!
+}
+
+extend type Query {
+    findAllCurrentAccounts: [CurrentAccount]
+    findCurrentAccountById(accountNo: Int!): CurrentAccount
+    findCurrentAccountByOD(od: Int!): [CurrentAccount]
+}
+
+extend type Mutation {
+    addCurrentAccount(currentAccountInput: CurrentAccountInput!): SavingsAccount
+    updateCurrentAccount(currentAccountInput: CurrentAccountInput!): SavingsAccount
+    deleteCurrentAccount(accountNo: Int): Boolean
+}
