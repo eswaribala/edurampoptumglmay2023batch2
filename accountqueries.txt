@@ -15,3 +15,24 @@ mutation($savingsAccountInput: SavingsAccountInput!){
   }
 }
 ====================================================
+
+query{
+  findAllSavingsAccount{
+    accountNo
+    runningTotal
+  }
+}
+
+===============================================
+query($accountNo:Int!){
+  findSavingsAccountById(accountNo:$accountNo){
+    runningTotal
+    openingDate
+    interestRate
+  }
+}
+
+{
+  "accountNo": 1
+}
+==============================================
