@@ -20,7 +20,7 @@ extend type Query {
 }
 
 extend type Mutation {
-    addCurrentAccount(currentAccountInput: CurrentAccountInput!): SavingsAccount
-    updateCurrentAccount(currentAccountInput: CurrentAccountInput!): SavingsAccount
+    addCurrentAccount(currentAccountInput: CurrentAccountInput!): CurrentAccount
+    updateCurrentAccount(currentAccountInput: CurrentAccountInput!): CurrentAccount
     deleteCurrentAccount(accountNo: Int): Boolean
 }
