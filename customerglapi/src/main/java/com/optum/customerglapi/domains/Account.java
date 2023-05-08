@@ -16,6 +16,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
