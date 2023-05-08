@@ -36,3 +36,20 @@ query($accountNo:Int!){
   "accountNo": 1
 }
 ==============================================
+
+mutation($currentAccountInput:CurrentAccountInput!){
+  addCurrentAccount(currentAccountInput:$currentAccountInput){
+    
+    accountNo
+  }
+}
+
+{
+  "currentAccountInput": {
+    "accountNo": 0,
+    "runningTotal": 4368743,
+    "openingDate": "2023-03-03",
+    "overDraftLimit": 1000000
+    
+  }
+}
