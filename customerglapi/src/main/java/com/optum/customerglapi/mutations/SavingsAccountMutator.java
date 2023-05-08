@@ -33,7 +33,7 @@ public class SavingsAccountMutator implements GraphQLMutationResolver {
     public boolean deleteSavingsAccount(long accountNo){
         this.savingsAccountRepository.deleteById(accountNo);
         if(this.savingsAccountRepository.findById(accountNo)==null){
-            return true
+            return true;
         }
         else {
             return false;
