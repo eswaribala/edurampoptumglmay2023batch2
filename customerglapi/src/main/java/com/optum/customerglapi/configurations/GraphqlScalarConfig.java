@@ -13,5 +13,9 @@ public class GraphqlScalarConfig {
 public GraphQLScalarType dateType(){
     return ExtendedScalars.Date;
 }
+    @Bean
+    public GraphQLScalarType jsonType(){
+        return ExtendedScalars.Json;
+    }
 
 }
