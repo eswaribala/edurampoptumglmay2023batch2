@@ -53,3 +53,22 @@ mutation($currentAccountInput:CurrentAccountInput!){
     
   }
 }
+========================================
+query($accountNo:Int){
+  searchByAccountNo(accountNo:$accountNo){
+    __typename
+    
+    ...on SavingsAccount{
+      interestRate
+    }
+    
+    ... on CurrentAccount{
+      overDraftLimit
+    }
+    
+  }
+}
+{
+  "accountNo": 4
+}
+===================================================
