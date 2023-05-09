@@ -1,4 +1,4 @@
-type CurrentAccount implements Account{
+type CurrentAccount{
     accountNo: Int!
     runningTotal: Int!
     openingDate: Date

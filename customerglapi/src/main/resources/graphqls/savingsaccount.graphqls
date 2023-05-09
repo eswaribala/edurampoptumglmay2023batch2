@@ -1,15 +1,16 @@
 scalar Date
 
 
-interface Account{
-    accountNo: Int!
-    runningTotal: Int!
-    openingDate: Date
+#interface Account{
+#    accountNo: Int!
+#    runningTotal: Int!
+#    openingDate: Date
+#
+#}
 
-}
+union Account = SavingsAccount | CurrentAccount
 
-
-type SavingsAccount implements Account{
+type SavingsAccount{
     accountNo: Int!
     runningTotal: Int!
     openingDate: Date
