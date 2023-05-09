@@ -14,7 +14,7 @@ public class TransactionVO {
 
     private long transactionId;
     private long amount;
-    private LocalDate transactionDate;
+    private String transactionDate;
     private long accountNo;
 
 }

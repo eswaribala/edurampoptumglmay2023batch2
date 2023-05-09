@@ -2,7 +2,7 @@
 type TransactionVO{
     transactionId: Int
     amount: Int
-    transactionDate: Date
+    transactionDate: String
     accountNo: Int
 }
 
