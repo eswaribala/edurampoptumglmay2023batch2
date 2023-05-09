@@ -3,7 +3,7 @@ type CurrentAccount{
     runningTotal: Int!
     openingDate: Date
     overDraftLimit: Int!
-
+    transactionType:TransactionType
 }
 
 input CurrentAccountInput{
@@ -11,6 +11,7 @@ input CurrentAccountInput{
     runningTotal: Int!
     openingDate: String
     overDraftLimit: Int!
+    transactionType:TransactionType
 }
 
 extend type Query {

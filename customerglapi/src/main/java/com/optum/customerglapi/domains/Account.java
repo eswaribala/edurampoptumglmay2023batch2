@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import net.bytebuddy.implementation.bind.annotation.Super;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -28,5 +29,8 @@ public class Account {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate openingDate;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="Transaction_Type")
+    private TransactionType transactionType;
 
 }

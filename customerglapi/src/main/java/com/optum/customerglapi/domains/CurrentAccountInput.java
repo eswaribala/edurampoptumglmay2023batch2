@@ -12,4 +12,5 @@ public class CurrentAccountInput {
     private long runningTotal;
     private String openingDate;
     private long overDraftLimit;
+    private TransactionType transactionType;
 }

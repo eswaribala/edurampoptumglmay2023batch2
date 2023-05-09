@@ -20,6 +20,7 @@ public class CurrentAccountMutator implements GraphQLMutationResolver {
                  .accountNo(currentAccountInput.getAccountNo())
                  .openingDate(LocalDate.parse(currentAccountInput.getOpeningDate()))
                  .runningTotal(currentAccountInput.getRunningTotal())
+                 .transactionType(currentAccountInput.getTransactionType())
                  .overDraftLimit(currentAccountInput.getOverDraftLimit()).build();
            return  this.currentAccountRepository.save(currentAccount);
     }
@@ -27,6 +28,7 @@ public class CurrentAccountMutator implements GraphQLMutationResolver {
         CurrentAccount currentAccount=CurrentAccount.builder()
                 .accountNo(currentAccountInput.getAccountNo())
                 .openingDate(LocalDate.parse(currentAccountInput.getOpeningDate()))
+                .transactionType(currentAccountInput.getTransactionType())
                 .runningTotal(currentAccountInput.getRunningTotal())
                 .overDraftLimit(currentAccountInput.getOverDraftLimit()).build();
         return  this.currentAccountRepository.save(currentAccount);

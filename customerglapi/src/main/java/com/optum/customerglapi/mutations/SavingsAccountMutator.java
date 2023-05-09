@@ -19,7 +19,9 @@ public class SavingsAccountMutator implements GraphQLMutationResolver {
                 .accountNo(savingsAccountInput.getAccountNo())
                 .openingDate(LocalDate.parse(savingsAccountInput.getOpeningDate()))
                 .runningTotal(savingsAccountInput.getRunningTotal())
-                .interestRate(savingsAccountInput.getInterestRate()).build();
+                .interestRate(savingsAccountInput.getInterestRate())
+                .transactionType(savingsAccountInput.getTransactionType())
+                .build();
           return this.savingsAccountRepository.save(savingsAccount);
     }
     public SavingsAccount updateSavingsAccount(SavingsAccountInput savingsAccountInput){
@@ -27,7 +29,9 @@ public class SavingsAccountMutator implements GraphQLMutationResolver {
                 .accountNo(savingsAccountInput.getAccountNo())
                 .openingDate(LocalDate.parse(savingsAccountInput.getOpeningDate()))
                 .runningTotal(savingsAccountInput.getRunningTotal())
-                .interestRate(savingsAccountInput.getInterestRate()).build();
+                .interestRate(savingsAccountInput.getInterestRate())
+                .transactionType(savingsAccountInput.getTransactionType())
+                .build();
         return this.savingsAccountRepository.save(savingsAccount);
     }
     public boolean deleteSavingsAccount(long accountNo){

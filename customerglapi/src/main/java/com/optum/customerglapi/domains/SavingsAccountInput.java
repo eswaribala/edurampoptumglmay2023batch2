@@ -13,4 +13,5 @@ public class SavingsAccountInput {
     private long runningTotal;
     private String openingDate;
     private float interestRate;
+    private TransactionType transactionType;
 }

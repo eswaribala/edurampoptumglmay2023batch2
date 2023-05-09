@@ -10,11 +10,16 @@ scalar Date
 
 union Account = SavingsAccount | CurrentAccount
 
+enum TransactionType{
+    DirectDebit,External
+}
+
 type SavingsAccount{
     accountNo: Int!
     runningTotal: Int!
     openingDate: Date
     interestRate: Float
+    transactionType:TransactionType
 }
 
 input SavingsAccountInput{
@@ -22,6 +27,7 @@ input SavingsAccountInput{
     runningTotal: Int!
     openingDate: String
     interestRate: Float
+    transactionType:TransactionType
 }
 
 type Query{
