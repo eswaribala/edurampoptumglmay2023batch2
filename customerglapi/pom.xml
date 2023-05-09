@@ -80,6 +80,12 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-extended-scalars</artifactId>
+            <version>19.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

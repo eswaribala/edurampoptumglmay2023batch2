@@ -1,7 +1,10 @@
+scalar Date
+
+
 interface Account{
     accountNo: Int!
     runningTotal: Int!
-    openingDate: String
+    openingDate: Date
 
 }
 
@@ -9,7 +12,7 @@ interface Account{
 type SavingsAccount implements Account{
     accountNo: Int!
     runningTotal: Int!
-    openingDate: String
+    openingDate: Date
     interestRate: Float
 }
 

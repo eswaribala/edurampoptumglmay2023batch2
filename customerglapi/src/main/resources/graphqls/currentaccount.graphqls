@@ -1,7 +1,7 @@
 type CurrentAccount implements Account{
     accountNo: Int!
     runningTotal: Int!
-    openingDate: String
+    openingDate: Date
     overDraftLimit: Int!
 
 }
