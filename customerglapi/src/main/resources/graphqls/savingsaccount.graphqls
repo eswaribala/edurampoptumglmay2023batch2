@@ -37,6 +37,7 @@ type Query{
     findAllSavingsAccount: [SavingsAccount]
     findSavingsAccountById(accountNo: Int!): SavingsAccount
     findSavingsAccountByROI(roi: Float!): [SavingsAccount]
+    findAllSavingsAccountPaged(page:Int, size:Int): [SavingsAccount]
 }
 
 type Mutation{
