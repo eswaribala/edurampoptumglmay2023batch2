@@ -1,0 +1,11 @@
+
+type TransactionVO{
+    transactionId: Int
+    amount: Int
+    transactionDate: Date
+    accountNo: Int
+}
+
+type Subscription {
+    subscribeTransactions(accountNo: Int):TransactionVO
+}

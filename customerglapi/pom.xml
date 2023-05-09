@@ -91,6 +91,18 @@
             <artifactId>graphql-java-extended-validation</artifactId>
             <version>19.1</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectreactor/reactor-core -->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.datafaker/datafaker -->
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>1.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>
