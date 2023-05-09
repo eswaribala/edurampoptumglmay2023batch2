@@ -85,7 +85,12 @@
             <artifactId>graphql-java-extended-scalars</artifactId>
             <version>19.1</version>
         </dependency>
-
+        <!--Graphql Validators -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-extended-validation</artifactId>
+            <version>19.1</version>
+        </dependency>
     </dependencies>
 
     <build>

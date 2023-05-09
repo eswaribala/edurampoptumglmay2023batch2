@@ -22,9 +22,12 @@ type SavingsAccount{
     transactionType:TransactionType
 }
 
+directive @Size(min : Int = 0, max : Int = 2147483647, message : String = "graphql.validation.Size.message")
+on ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION
+
 input SavingsAccountInput{
     accountNo: Int!
-    runningTotal: Int!
+    runningTotal: Int! @Size(min: 5000,max: 200000000, message: "Running total should be in the range")
     openingDate: String
     interestRate: Float
     transactionType:TransactionType
