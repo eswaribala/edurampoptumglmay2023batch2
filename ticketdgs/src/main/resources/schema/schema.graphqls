@@ -1,5 +1,5 @@
 type Ticket{
-    ticketNo: ID!
+    ticketNo: Int!
     description: String
     status: Status
     openingDate: String
@@ -11,20 +11,20 @@ enum Status{
     Closed
 }
 
-input TicketInput{
-    ticketNo: ID!
-    description: String
-    status: Status
-    openingDate: String
-    closingDate: String
-}
+#input TicketInput{
+#    ticketNo: ID!
+#    description: String
+#    status: Status
+#    openingDate: String
+#    closingDate: String
+#}
 
 type Query{
 
     allTickets: [Ticket]
-    getTicketByNo(ticketNo: ID!): Ticket
+    getTicketByNo(ticketNo: Int!): Ticket
 }
 
-type Mutation{
-    addTicket(ticketInput: TicketInput): Ticket
-}
+#type Mutation{
+#    addTicket(ticketInput: TicketInput): Ticket
+#}
