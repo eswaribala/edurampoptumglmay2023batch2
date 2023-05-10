@@ -82,6 +82,25 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>io.github.deweyjose</groupId>
+                <artifactId>graphqlcodegen-maven-plugin</artifactId>
+                <version>1.18</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <schemaPaths>
+                        <param>src/main/resources/schema/account.graphqls</param>
+                        <param>src/main/resources/schema/transaction.graphqls</param>
+                    </schemaPaths>
+                    <packageName>${project.groupId}.accountdgs.generated</packageName>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <repositories>

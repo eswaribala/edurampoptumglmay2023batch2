@@ -1,6 +1,7 @@
 package com.optum.accountdgs.domains;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,11 +13,12 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Transaction_Id")
-    private long transactionId;
+    private int transactionId;
     @Column(name="Amount")
     private long amount;
     @Column(name="Transaction_Date")

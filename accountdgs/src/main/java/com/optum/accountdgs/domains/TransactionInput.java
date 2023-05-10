@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TransactionInput {
 
-    private long transactionId;
+    private int transactionId;
     private long amount;
     private String transactionDate;
     private AccountInput account;

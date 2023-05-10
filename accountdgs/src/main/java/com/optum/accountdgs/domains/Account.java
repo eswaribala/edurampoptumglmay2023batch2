@@ -2,6 +2,7 @@ package com.optum.accountdgs.domains;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,11 +16,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="Account_No")
-    private long accountNo;
+    private int accountNo;
     @Column(name="Running_Total")
     private long runningTotal;
     @Column(name="OpeniingDate")

@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountInput {
-    private long accountNo;
+    private int accountNo;
     private long runningTotal;
     private String openingDate;
     private List<TransactionInput> transactionInputList;
