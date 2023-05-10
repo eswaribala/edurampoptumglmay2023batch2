@@ -29,16 +29,19 @@ public class AccountNotException extends RuntimeException implements GraphQLErro
 
     @Override
     public List<Object> getPath() {
-        return GraphQLError.super.getPath();
+        return null;
+        //return GraphQLError.super.getPath();
     }
 
     @Override
     public Map<String, Object> toSpecification() {
-        return GraphQLError.super.toSpecification();
+        return null;
+        //return GraphQLError.super.toSpecification();
     }
 
     @Override
     public Map<String, Object> getExtensions() {
-        return  Collections.singletonMap("invalidField", invalidField);
+        return null;
+     //   return  Collections.singletonMap("invalidField", invalidField);
     }
 }
