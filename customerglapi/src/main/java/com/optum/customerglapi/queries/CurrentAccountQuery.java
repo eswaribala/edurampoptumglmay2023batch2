@@ -1,8 +1,9 @@
 package com.optum.customerglapi.queries;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+//import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.optum.customerglapi.domains.CurrentAccount;
 import com.optum.customerglapi.repositories.CurrentAccountRepository;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

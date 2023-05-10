@@ -1,8 +1,10 @@
 package com.optum.customerglapi.queries;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+//import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.optum.customerglapi.domains.SavingsAccount;
+import com.optum.customerglapi.exceptions.AccountNotException;
 import com.optum.customerglapi.repositories.SavingsAccountRepository;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,7 +21,14 @@ public class SavingsAccountQuery implements GraphQLQueryResolver {
           return this.savingsAccountRepository.findAll();
    }
    public SavingsAccount findSavingsAccountById(long accountNo){
-           return this.savingsAccountRepository.findById(accountNo).orElse(null);
+          SavingsAccount savingsAccount= this.savingsAccountRepository.findById(accountNo).orElse(null);
+          if(savingsAccount==null){
+              throw new AccountNotException("Account No Invalid"+accountNo);
+          }
+          else
+          {
+              return savingsAccount;
+          }
    }
     public List<SavingsAccount> findSavingsAccountByROI(float roi) {
 

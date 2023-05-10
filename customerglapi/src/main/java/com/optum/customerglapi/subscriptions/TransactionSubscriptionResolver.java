@@ -1,8 +1,9 @@
 package com.optum.customerglapi.subscriptions;
 
-import com.coxautodev.graphql.tools.GraphQLSubscriptionResolver;
+//import com.coxautodev.graphql.tools.GraphQLSubscriptionResolver;
 import com.optum.customerglapi.dtos.TransactionVO;
 import com.optum.customerglapi.services.TransactionConsumerService;
+import graphql.kickstart.tools.GraphQLSubscriptionResolver;
 import net.datafaker.Faker;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
