@@ -1,0 +1,30 @@
+type Ticket{
+    ticketNo: ID!
+    description: String
+    status: Status
+    openingDate: String
+    closingDate: String
+}
+
+enum Status{
+    Open
+    Closed
+}
+
+input TicketInput{
+    ticketNo: ID!
+    description: String
+    status: Status
+    openingDate: String
+    closingDate: String
+}
+
+type Query{
+
+    allTickets: [Ticket]
+    getTicketByNo(ticketNo: ID!): Ticket
+}
+
+type Mutation{
+    addTicket(ticketInput: TicketInput): Ticket
+}
