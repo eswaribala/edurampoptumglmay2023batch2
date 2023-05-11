@@ -1,0 +1,111 @@
+RestTemplate restTemplate = restTemplate();
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.add("Authorization", "Bearer *************");
+    headers.add("content-type", "application/json"); // just modified graphql into json
+
+    String query1 = "{\n" +
+            "  \"query\": query {\n" +
+            "    \"locationTypes\": {\n" +
+            "      \"edges\": \n" +
+            "        {\n" +
+            "          \"node\": \n" +
+            "        {\n" +
+            "          \"name\"\n" +
+            "        }\n" +
+            "        }\n" +
+            "    }\n" +
+            "  }\n" +
+            "}";
+
+    String URL = "https://staging.joinswoop.com/graphql";
+
+    ResponseEntity<String> response = restTemplate.postForEntity(URL, new HttpEntity<>(query1, headers), String.class);
+  System.out.println("The response================="+response);
+}
+
+
+@Component
+class MyClass {
+  
+  private final GraphQLWebClient graphQLWebClient;
+  
+  MyClass(GraphQLWebClient graphQLWebClient) {
+    this.graphQLWebClient = graphQLWebClient;
+  }
+  
+  String helloWorld() {
+    GraphQLRequest request = GraphQLRequest.builder().query("query { hello }").build();
+    GraphQLResponse response = graphQLWebClient.post(request).block();
+    return response.get("hello", String.class);
+  }
+}
+
+import com.apollographql.apollo3.cache.normalized.NormalizedCache;
+import com.apollographql.apollo3.cache.http.HttpCache;
+// (...)
+
+ApolloClient.Builder builder = new ApolloClient.Builder()
+  .serverUrl("http://localhost:4000/graphql")
+
+// Optionally, set an http cache
+HttpCache.configureApolloClientBuilder(builder, cacheDirectory, cacheMaxSize);
+
+// Optionally, set a normalized cache
+NormalizedCache.configureApolloClientBuilder(
+  builder,
+  new MemoryCacheFactory(10 * 1024 * 1024, -1),
+  TypePolicyCacheKeyGenerator.INSTANCE,
+  FieldPolicyCacheResolver.INSTANCE,
+  false
+);
+
+ApolloClient client = builder.build();
+
+@Configuration
+public class DateScalarConfiguration  {
+
+    @Bean
+    public GraphQLScalarType dateScalar() {
+        return GraphQLScalarType.newScalar()
+            .name("Date")
+            .description("Java 8 LocalDate as scalar.")
+            .coercing(new Coercing<LocalDate, String>() {
+                @Override
+                public String serialize(final Object dataFetcherResult) {
+                    if (dataFetcherResult instanceof LocalDate) {
+                        return dataFetcherResult.toString();
+                    } else {
+                        throw new CoercingSerializeException("Expected a LocalDate object.");
+                    }
+                }
+
+                @Override
+                public LocalDate parseValue(final Object input) {
+                    try {
+                        if (input instanceof String) {
+                            return LocalDate.parse((String) input);
+                        } else {
+                            throw new CoercingParseValueException("Expected a String");
+                        }
+                    } catch (DateTimeParseException e) {
+                        throw new CoercingParseValueException(String.format("Not a valid date: '%s'.", input), e
+                        );
+                    }
+                }
+
+                @Override
+                public LocalDate parseLiteral(final Object input) {
+                    if (input instanceof StringValue) {
+                        try {
+                            return LocalDate.parse(((StringValue) input).getValue());
+                        } catch (DateTimeParseException e) {
+                            throw new CoercingParseLiteralException(e);
+                        }
+                    } else {
+                        throw new CoercingParseLiteralException("Expected a StringValue.");
+                    }
+                }
+            }).build();
+    }
+}
