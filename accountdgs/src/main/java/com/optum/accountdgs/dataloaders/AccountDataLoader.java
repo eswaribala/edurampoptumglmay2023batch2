@@ -11,11 +11,11 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 @DgsDataLoader(name="accounts")
-public class AccountDataLoader implements BatchLoader<Long, Account> {
+public class AccountDataLoader implements BatchLoader<Integer, Account> {
     @Autowired
     private AccountRepository accountRepository;
     @Override
-    public CompletionStage<List<Account>> load(List<Long> list) {
+    public CompletionStage<List<Account>> load(List<Integer> list) {
         return CompletableFuture.supplyAsync(()->  accountRepository.findAllById(list));
 
     }

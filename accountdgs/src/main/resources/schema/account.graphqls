@@ -9,7 +9,7 @@ input AccountInput{
     accountNo: Int!
     runningTotal: Int
     openingDate: String
-    transactionList: [TransactionInput]
+    transactionInputList: [TransactionInput]
 }
 
 type Query{

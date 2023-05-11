@@ -57,17 +57,18 @@ public class AccountFetcher {
                    .runningTotal(accountInput.getRunningTotal())
                    .build();
           Account accountResponse= accountRepository.save(account);
-
-          if(accountInput.getTransactionInputList().size()>0){
-           for(TransactionInput transactionInput: accountInput.getTransactionInputList()){
-            Transaction transaction=Transaction.builder()
-                    .transactionId(transactionInput.getTransactionId())
-                    .transactionDate(LocalDate.parse(transactionInput.getTransactionDate()))
-                    .amount(transactionInput.getAmount())
-                    .account(account).build();
-            transactionRepository.save(transaction);
-           }
-          }
+       // if(accountInput.getTransactionInputList()!=null) {
+            if (accountInput.getTransactionInputList().size() > 0) {
+                for (TransactionInput transactionInput : accountInput.getTransactionInputList()) {
+                    Transaction transaction = Transaction.builder()
+                            .transactionId(transactionInput.getTransactionId())
+                            .transactionDate(LocalDate.parse(transactionInput.getTransactionDate()))
+                            .amount(transactionInput.getAmount())
+                            .account(account).build();
+                    transactionRepository.save(transaction);
+                }
+            }
+      //  }
           accountResponse.setTransactionList(mapAccountTransactions(accountInput.getTransactionInputList()));
           return accountResponse;
     }
