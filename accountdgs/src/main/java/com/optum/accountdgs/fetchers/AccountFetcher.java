@@ -9,6 +9,7 @@ import com.optum.accountdgs.repositories.AccountRepository;
 import com.optum.accountdgs.repositories.TransactionRepository;
 import graphql.schema.DataFetchingEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class AccountFetcher {
 
 
     @DgsQuery
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
     public List<Account> allAccounts(){
          return accountRepository.findAll();
     }

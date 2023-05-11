@@ -9,6 +9,7 @@ import com.optum.accountdgs.domains.Transaction;
 import com.optum.accountdgs.domains.TransactionInput;
 import com.optum.accountdgs.repositories.AccountRepository;
 import com.optum.accountdgs.repositories.TransactionRepository;
+import com.optum.accountdgs.services.TransactionService;
 import graphql.schema.DataFetchingEnvironment;
 import org.dataloader.DataLoader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class TransactionFetcher {
     @Autowired
     private TransactionRepository transactionRepository;
 
+    @Autowired
+    private TransactionService transactionService;
+
     @DgsQuery
     public List<Transaction> allTransactions(){
 
@@ -33,7 +37,7 @@ public class TransactionFetcher {
     @DgsQuery
     public Transaction transactionById(int transactionId){
 
-       return transactionRepository.findById(transactionId).orElse(null);
+       return transactionService.getTransactionById(transactionId);
     }
 
 
