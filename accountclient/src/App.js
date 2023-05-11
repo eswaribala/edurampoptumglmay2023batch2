@@ -1,16 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import TransactionList from "./Pages/TransactionList";
-import CreateEmployee from "./Pages/CreateEmployee";
-import CreateEmployeeSubscription from "./Pages/CreateEmployeeSubscription";
+import CreateTransaction from "./Pages/CreateTransaction";
+import CreateTransactionSubscription from "./Pages/CreateTransactionSubscription";
 
 function App() {
 
   return (
     <div className="App">
-    <CreateEmployee/>
+    <CreateTransaction/>
     <TransactionList/>
-    <CreateEmployeeSubscription/>
+    <CreateTransactionSubscription/>
     </div>
   );
 }

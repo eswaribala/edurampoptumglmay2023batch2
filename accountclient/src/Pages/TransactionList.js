@@ -5,9 +5,8 @@ const GET_TRANSACTIONS=gql `
         showTransactions{
             amount
             timeStamp
-            account{
-                runningTotal
-            }
+            sender
+            receiver
         }
     }
 `
@@ -27,8 +26,12 @@ return <div>
          Time Stamp
      </th>
      <th>
-         Running Total
+         Sender
      </th>
+     <th>
+         Receiver
+     </th>
+
      </thead>
     <tbody>
     {
@@ -37,7 +40,8 @@ return <div>
                 <tr key={transaction.amount}>
                     <td>{transaction.amount}</td>
                     <td>{transaction.timeStamp}</td>
-                    <td>{transaction.account.runningTotal}</td>
+                    <td>{transaction.sender}</td>
+                    <td>{transaction.receiver}</td>
                 </tr>
             )
         })

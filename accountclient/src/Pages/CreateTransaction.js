@@ -17,7 +17,7 @@ const CREATE_EMPLOYEE=gql `
         }
     }`
 
-export default function CreateEmployee(){
+export default function CreateTransaction(){
 
     var obj={
         "employeeNo": 4867,
