@@ -1,14 +1,17 @@
 import React from 'react'
 import {useQuery,gql} from "@apollo/client";
 const GET_TRANSACTIONS=gql `
-    query{
-        showTransactions{
-            amount
-            timeStamp
-            sender
-            receiver
+    
+        query{
+            allTransactions{
+                amount
+                transactionDate
+                transactionId
+
+            }
+
         }
-    }
+    
 `
 export default function TransactionList(){
     const {error,data,loading}=useQuery(GET_TRANSACTIONS);
@@ -35,13 +38,13 @@ return <div>
      </thead>
     <tbody>
     {
-        data.showTransactions.map(transaction=>{
+        data.allTransactions.map(transaction=>{
             return(
                 <tr key={transaction.amount}>
                     <td>{transaction.amount}</td>
-                    <td>{transaction.timeStamp}</td>
-                    <td>{transaction.sender}</td>
-                    <td>{transaction.receiver}</td>
+                    <td>{transaction.transactionDate}</td>
+                    <td>{transaction.transactionId}</td>
+
                 </tr>
             )
         })
