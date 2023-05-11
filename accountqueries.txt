@@ -72,3 +72,74 @@ query($accountNo:Int){
   "accountNo": 4
 }
 ===================================================
+mutation($accountInput:AccountInput!){
+  addAccount(accountInput:$accountInput){
+    accountNo
+    transactionList{
+      transactionId
+    }
+  }
+}
+
+{
+  "accountInput": {
+    "accountNo": 0,
+    "runningTotal": 4356794,
+    "openingDate": "2023-04-05",
+    "transactionInputList": [{
+      "transactionId": 0,
+      "amount": 5000,
+      "transactionDate": "2023-05-05"
+      
+    },
+    {
+      "transactionId": 0,
+      "amount": 6000,
+      "transactionDate": "2023-05-06"
+      
+    }]
+  }
+}
+============================
+
+query{
+  allAccounts{
+    accountNo
+    runningTotal
+    openingDate
+    transactionList{
+      transactionId
+      amount
+    }
+  }
+}
+
+==================================
+
+mutation($transactionInput: TransactionInput!){
+  addTransaction(transactionInput:$transactionInput){
+    transactionId
+    amount
+    account{
+      accountNo
+      runningTotal
+    }
+    
+  }
+}
+{
+  "transactionInput": {
+    "transactionId": 0,
+    "amount": 6700,
+    "transactionDate": "2023-05-14",
+    "account": {
+      "accountNo": 1
+    }
+    
+  }
+}
+===================================
+
+
+
+
